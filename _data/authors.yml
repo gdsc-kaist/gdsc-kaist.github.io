@@ -32,3 +32,11 @@ Younho Jeon:
     - label: "Website"
       icon: "fas fa-fw fa-link"
       url: "https://github.com/iamyouno"
+
+Gahyeon Lee:
+  name        : "Gahyeon Lee"
+  bio         : "Junior Developer"
+  links:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: "stik_man@kaist.ac.kr"
