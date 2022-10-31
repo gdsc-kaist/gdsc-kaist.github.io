@@ -9,15 +9,14 @@ Bongjun Jang:
     - label: "Website"
       icon: "fas fa-fw fa-link"
       url: "https://bonjune.github.io"
-      
-Seohyun Lee:
-  name        : "Seohyun Lee"
-  bio         : "Hello, World!"
-  avatar      : ""
-  links:
+
+Younho Jeon:
+  name        : "Younho Jeon"
+  bio         : "I like python and ML"
+  links       :
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      url: "studioseorii@gmail.com"
+      url: "117jyh@kaist.ac.kr"
     - label: "Website"
       icon: "fas fa-fw fa-link"
-      url: "https://seo-rii.github.io"
+      url: "https://github.com/iamyouno"
