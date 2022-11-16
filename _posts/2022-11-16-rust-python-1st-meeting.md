@@ -48,6 +48,8 @@ UTF-8는 유니코드의 한 인코딩 방식인데 가장 기초적인 문자�
 |      U+0800      |     U+FFFF      | 1110xxxx | 10xxxxxx | 10xxxxxx |
 |     U+10000      |    U+10FFFF     | 11110xxx | 10xxxxxx | 10xxxxxx | 10xxxxxx |
 
+Reference: https://en.wikipedia.org/wiki/UTF-8
+
 하나의 바이트만을 사용할 경우 ASCII와 똑같은 인코딩을 가지기 때문에 ASCII 문자열은 UTF-8을 이용해 바로 인코딩될 수 있다.
 
 주목할 만한 점은 한 문자가 얼마나 많은 바이트를 사용하는지를 알기 위해 문자의 첫번째 바이트를 살펴보아야 한다는 뜻이다.
