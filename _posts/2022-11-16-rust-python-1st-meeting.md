@@ -8,11 +8,12 @@ header:
   og_image: /assets/images/logo.jpg
 ---
 
-# Overview
+## Overview
 
 RustPython Contribution 프로젝트 첫번째 미팅에서 공유한 내용입니다.
 Python의 인터프리터를 개괄적으로 이해하고, 인터프리터에서 입력 문자열을 분석하는 첫 단계인
 Lexical Analysis에 대해서 내용을 공유하였고, 이와 관련해 가장 대중적인 문자열 인코딩인 UTF-8에 대해서 이야기했습니다.
+Rust가 UTF-8 문자열을 다루는 법에 대해 같이 알아보았으며, 이를 기초로 RustPython에서 Lexer 구조체가 어떤 형태를 가지고 있는지 공유하였습니다.
 
 ## Intrepreted Language vs. Compiled Language
 
@@ -82,5 +83,29 @@ let good_ahn = s[0..3]; // '안', and the type is `&str`
 ```
 
 
-## RustPython의 Lexer 구현과 CPython의 구현
+## RustPython의 Lexer 구조체
 
+RustPython의 Lexer 구조체는 다음 링크에서 찾아볼 수 있다.
+https://github.com/RustPython/RustPython/blob/17944d3eaedd0ad96bc819626446f4f79d16fea8/compiler/parser/src/lexer.rs#L59-L69
+
+``` rust
+pub struct Lexer<T: Iterator<Item = char>> {
+    chars: T,
+    at_begin_of_line: bool,
+    nesting: usize, // Amount of parenthesis
+    indentation_stack: Vec<IndentationLevel>,
+    pending: Vec<Spanned>,
+    chr0: Option<char>,
+    chr1: Option<char>,
+    chr2: Option<char>,
+    location: Location,
+}
+```
+
+`char` 타입을 내보내는 Iterator를 소유하면서 `ch0`, `ch1`, `ch2` 에서 문자 3개를 같이 살펴보고 있다.
+`pending`에는 문자열을 탐색하며 얻은 토큰이 Spanned 형태로 추가된다.
+Python은 indentation으로 코드 블록을 구분하기 때문에 Lexer에서도 indentation level을 신경쓰는 것을 볼 수 있다.
+
+그 구조체를 좀 더 가독성있게 변경하기 위해 플리퀘스트를 진행하고 있다.
+
+https://github.com/RustPython/RustPython/pull/4257
