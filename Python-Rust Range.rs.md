@@ -1,15 +1,5 @@
----
-layout: single
-title:  "RustPython Contribution 2차 미팅: `range` Implementation"
-date:   2022-11-25 13:0:0 +0900
-author: Youngmin Ryou
 
-header:
-  og_image: /assets/images/logo.jpg
----
-
-# pyRange
-
+# Range
 
 - 참고 자료: Rust Python github repository, range.rs
 [RustPython/range.rs at 5fed6a35af2f1ffec4e6906df5d7d59b24f7d147 · RustPython/RustPython](https://github.com/RustPython/RustPython/blob/5fed6a35af2f1ffec4e6906df5d7d59b24f7d147/vm/src/builtins/range.rs)
@@ -18,7 +8,7 @@ header:
 Rust Python의 range 파이썬 빌트인 클래스 구현 코드를 살펴봄으로써 파이썬 빌트인 함수가 어떤 식으로 구동되는지 알아 본다.
 
 
-# Python Built-in class Range에 대한 이해
+## Python Built-in class Range에 대한 이해
 
 파이썬 Documentation에 본 게시물을 이해하기 위해서 필요한 range 클래스에 대한 사전 정보가 잘 정리되어 있으니, 본 글을 더 잘 이해하고 싶다면 아래 링크를 타고 들어가 range에 대한 설명을 읽어 보기를 바란다.
 
@@ -44,7 +34,7 @@ sequence abstract base class에 어떤 메소드들이 구현되어 있는지는
 
 list 타입은 list 생성과 동시에 필요한 primitive value를 메모리에 생성하고 그것에 대한 레퍼런스를 메모리에 저장한다. 반면 range 타입은 인스턴스에 start, stop, step만 저장하고 필요한 value나 substring을 메소드 호출 시에 필요에 따라 계산하는 방식으로 구현되어 있다. 따라서 range sequence의 길이에 관계 없이 range 인스턴스가 메모리에서 차지하는 크기는 매우 작고, 고정되어 있으며 따라서 list에 비해 메모리 효율적이다.
 
-# Rust Implementation 살펴 보기
+## Rust Implementation 살펴 보기
 
  이제 python range를 얼마 정도 살펴 봤으니 rust에 python range 타입이 어떻게 구현되어 있는지 살펴 보자.
 
