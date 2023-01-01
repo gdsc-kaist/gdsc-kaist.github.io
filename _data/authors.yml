@@ -40,3 +40,11 @@ Gahyeon Lee:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
       url: "stik_man@kaist.ac.kr"
+
+Youngmin Ryou:
+  name        : "Youngmin Ryou"
+  bio         : "Math and ML"
+  links:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: "yym3055@kaist.ac.kr"
