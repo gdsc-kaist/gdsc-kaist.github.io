@@ -33,7 +33,7 @@ Range 클래스는 start, stop, step 세 가지 변수로만 구성되어 있는
 
 range 타입은 number sequence이다. range 타입 변수 r이 있다고 할 때, r[i]=start+i*step으로 계산된다. 이때 i는 0 이상의 정수여야 한다. 만약 step > 0이라면 r[i] < stop이어야 하고, step < 0이면 r[i] > stop이어야 한다. step == 0인 경우에는 range는 정의되지 않는다. 이때 start, stop, step은 모두 정수여야 한다.
 
-2. **Python의 Sequence ADT를 구현한다. 따라서 containment test, indexing같은 sequence ADT에서 사용할 수 있는 메소드를 구현한다. 하지만 concaternation, repetition 등은 구현하지 않는다.**
+2. **Python의 Sequence ADT를 구현한다. 따라서 containment test, indexing같은 sequence ADT에서 사용할 수 있는 메소드를 구현한다. 하지만 concatenation, repetition 등은 구현하지 않는다.**
 
 정확히 말하면 range는 [collections.abc.Sequence](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence) 를 구현한다. sequence 타입에는 containment test, indexing, slicing 등의 기본적인 메소드들이 존재한다. 그러나 range는 repetition과 concaternation 메소드를 구현하지 않는다. range는 등차순열 패턴을 이용해 수열을 생성하는 타입인데, repetition이나 concatenation 메소드를 range 타입에 적용하면 그 패턴이 깨지기 때문이다.
 
